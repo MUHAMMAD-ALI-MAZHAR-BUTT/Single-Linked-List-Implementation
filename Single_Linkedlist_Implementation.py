@@ -44,7 +44,8 @@ class Linkedlist_Implementation:
         del tempObject1
         self.head=tempObject2
     def delete_at_specific(self):
-        var = int(input("Enter value to delete from the specific location in linkedlist : "))
+        var = int(input("Enter value to delete from in linkedlist : "))
+
     def delete_at_end(self):
         tempObject=self.head
         while tempObject.next.next is not None:
@@ -115,6 +116,17 @@ class Linkedlist_Implementation:
             tempObject=tempObject.next
             count=count+1
         return count
+
+    def search_element(self):
+        inputdata=int(input('Enter element you want to search in Linkedlist : '))
+        tempObject=self.head
+        count=0
+        while tempObject is not None:
+            if(tempObject.data==inputdata):
+                return 1
+            else:
+                tempObject=tempObject.next
+        return count
     def inputs(self):
         input_ = 1
         while (input_ != 0):
@@ -131,6 +143,7 @@ class Linkedlist_Implementation:
             print("Press 7.0: for reverse elements")
             print("Press 8.0: for print min element")
             print("Press 9.0: for print max element")
+            print("Press 10: for Search element")
             print("Press 0: for exit")
             input_ = float(input("Enter operation want to perform : "))
             if (input_ == 1.0):
@@ -190,6 +203,14 @@ class Linkedlist_Implementation:
                     print("Linkedlist is empty")
                 else:
                     self.max_element()
+            elif (input_ == 10):
+                if self.head is None:
+                    print("Linkedlist is empty")
+                else:
+                    if(self.search_element()==1):
+                        print('Yes, the Element is present in linkedlist')
+                    else:
+                        print('No,the Element is not present in linkedlist')
             else:
                 print("Invalid input")
 
